@@ -20,9 +20,9 @@ Install the TDD skills plus the one stack skill your project uses. Each TDD skil
 
 A stack skill must not redefine a TDD rule. It supplies commands, annotations, tier mappings, and worked examples that cite the TDD Core Rules by number — nothing else.
 
-### Precedence with design skills
+### Architecture-neutral
 
-These skills are built to run alongside the [`ddd-*` skills](https://github.com/jeremyrdavis/agentic-skills-for-ddd) and any other design skill: **`tdd-cycle` governs the sequence; a design skill constrains the interface decisions made while writing a test and the layering; implementation decisions in the refactor step are TDD's; `<stack>-ddd` and `<stack>-tdd` supply mechanics.** That is Beck's own split between the design that happens while writing a test (how behavior is invoked) and the design that happens while refactoring (how it is implemented).
+The loop is the same whether the code follows Domain-Driven Design, REST over Active Record, or anything else. The project's design conventions decide what a test invokes; these skills decide when and in what order. They never reference an architecture, and no architecture skill needs to reference them.
 
 ## What this repository contains
 
@@ -31,7 +31,7 @@ Two skills under `skills/`:
 - `tdd-test-list` — step 1 of Canon TDD: the list of behaviors, written before any code, walked through ZOMBIES for completeness, ordered simplest-forcing-case first and exceptions last, appended during the loop, and empty when the work is done.
 - `tdd-cycle` — steps 2–5: one test at a time, seen red (compile failure first when something is new), expected values derived by reasoning and predicted before every run, the simplest green, a callout when a test passes without ever failing, simplify, a refactoring step with its own hat, a commit at every green.
 
-Each skill is a `SKILL.md` with the same structure as the DDD skills: a foundational principle, red flags, when to use, numbered Core Rules, anti-patterns, an excuse/reality table, a quick-reference checklist, and companion skills. `tdd-test-list/references/zombies.md` carries the ZOMBIES heuristic; `tdd-cycle/references/canon-tdd.md` carries the canonical workflow, Beck's mistake list, and what the skill adds beyond canon and why. Each skill also has an `evals/evals.json` whose expectations are those mistakes, negated.
+Each skill is a `SKILL.md` with the same structure: a foundational principle, red flags, when to use, numbered Core Rules, anti-patterns, an excuse/reality table, a quick-reference checklist, and companion skills. `tdd-test-list/references/zombies.md` carries the ZOMBIES heuristic; `tdd-cycle/references/canon-tdd.md` carries the canonical workflow, Beck's mistake list, and what the skill adds beyond canon and why. Each skill also has an `evals/evals.json` whose expectations are those mistakes, negated.
 
 ### Modes
 
@@ -75,7 +75,7 @@ Claude Code loads `<project>/.claude/skills/<name>/SKILL.md` for that project. C
 - `tdd-cycle` tells you **how each test becomes working code**.
 - `<stack>-tdd` tells you **how your stack runs the loop**.
 
-For "add cancel to `Order`": `tdd-test-list` produces the `[TEST]` items (a placed order can be cancelled; a fulfilled one cannot; cancelling raises the event; …); `tdd-cycle` takes the first item, sees it red, makes it green, refactors, commits, and moves to the next; `quarkus-tdd` says the aggregate tests are plain JUnit, the application-service test is a `@QuarkusTest`, and what to run at each step. With the DDD skills installed, `ddd-aggregates` says what `cancel()` may look like.
+For "add cancel to `Order`": `tdd-test-list` produces the `[TEST]` items (a placed order can be cancelled; a fulfilled one cannot; cancelling raises the event; …); `tdd-cycle` takes the first item, sees it red, makes it green, refactors, commits, and moves to the next; `quarkus-tdd` says which tests run on the plain JVM and which need `@QuarkusTest`, and what to run at each step.
 
 ## Using the skills with Claude Code
 

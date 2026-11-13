@@ -30,7 +30,7 @@ If any of these surface, re-read Core Rules and Excuse / Reality before typing.
 - Reviewing a test suite for gaps: missing zero/one/many cases, missing boundary transitions, only happy paths.
 - Reviewing a `[TEST]` list for implementation leakage or bad ordering.
 
-**Out of scope**: turning an item into a test and making it pass — the loop, its red and green discipline, and refactoring (use `tdd-cycle`); where the list physically lives in a given stack, the test runner, test tiers, and doubles (use the `<stack>-tdd` skill for your stack, e.g. `quarkus-tdd`; if none is installed, keep the list as comments at the bottom of the test file); the design of the interface the tests will invoke (that is decided while writing each test, constrained by design skills such as `ddd-*` when installed).
+**Out of scope**: turning an item into a test and making it pass — the loop, its red and green discipline, and refactoring (use `tdd-cycle`); where the list physically lives in a given stack, the test runner, test tiers, and doubles (use the `<stack>-tdd` skill for your stack, e.g. `quarkus-tdd`; if none is installed, keep the list as comments at the bottom of the test file); the design of the interface the tests will invoke (that is decided while writing each test, following the project's conventions, whatever its architecture).
 
 ---
 
@@ -103,4 +103,5 @@ When you catch yourself reasoning around the rules above, look here before you t
 
 - **`tdd-cycle`** — turns one item into one test and makes it pass; Rule 8 there is the other half of Rule 6 here.
 - **`<stack>-tdd`** — the mechanics skill for your stack (`quarkus-tdd`, `spring-tdd`, `pytest-tdd`, ...), if installed: where the list lives, which test tier each item maps to, the runner. If none is installed, keep the list as comments in the test file and use the project's runner.
-- **`ddd-*`** (if installed) — the vocabulary the items use: aggregate behaviors and invariants, value-object validation, events raised. The list describes behavior in the ubiquitous language; it never names layers or persistence.
+
+The list describes behavior in the language of the problem; it never names layers, persistence, or an architecture, and it is the same list whatever architecture the code follows.

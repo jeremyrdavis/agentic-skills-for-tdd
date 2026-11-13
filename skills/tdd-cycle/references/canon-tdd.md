@@ -20,7 +20,7 @@ The intended outcome of a cycle is a new state of the system where everything th
 
 Beck separates *how a piece of behavior is invoked* from *how the system implements it*. Writing the test (step 2) is where interface decisions are made; refactoring (step 4) is where implementation decisions are made. Mixing them is the "two hats" problem.
 
-This split is how the `tdd-*` skills coexist with design skills such as `ddd-*`: a design rule constrains what the test may invoke (an aggregate's factory, a transition method, a typed ID); the implementation behind it is still discovered test by test and tidied in the refactor step.
+This split is also why the loop is the same under any architecture: whatever the project's conventions prescribe for how behavior is invoked is settled while writing the test; the implementation behind it is still discovered test by test and tidied in the refactor step.
 
 ## The mistakes Beck names
 

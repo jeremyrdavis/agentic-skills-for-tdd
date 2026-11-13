@@ -33,7 +33,7 @@ If any of these surface, re-read Core Rules and Excuse / Reality before typing.
 - Reviewing a diff: production code without a test, a test added after the code, an expected value that looks pasted, a refactoring tangled with a behavior change.
 - Deciding whether to stop: the list is empty, but is the fear gone?
 
-**Out of scope**: writing and ordering the test list, ZOMBIES, and deciding the next item (use `tdd-test-list` — this skill takes the next item as given); the runner, test tiers and what "all tests" costs per tier, stub conventions, test doubles, and framework test annotations (use the `<stack>-tdd` skill for your stack, e.g. `quarkus-tdd`; if none is installed, use the project's runner and apply the rules with its equivalents); the shape of the interface a test invokes when a design skill governs it (`ddd-*` when installed — this skill decides *when* the interface is decided, those skills constrain *what it may look like*); exploratory spikes the user declares as such, which are thrown away, not merged.
+**Out of scope**: writing and ordering the test list, ZOMBIES, and deciding the next item (use `tdd-test-list` — this skill takes the next item as given); the runner, test tiers and what "all tests" costs per tier, stub conventions, test doubles, and framework test annotations (use the `<stack>-tdd` skill for your stack, e.g. `quarkus-tdd`; if none is installed, use the project's runner and apply the rules with its equivalents); the shape of the interface a test invokes — that comes from the project's design conventions, whatever architecture it follows; this skill decides *when* the interface is decided, not what it looks like; exploratory spikes the user declares as such, which are thrown away, not merged.
 
 ---
 
@@ -49,7 +49,7 @@ If any of these surface, re-read Core Rules and Excuse / Reality before typing.
 8. **Discoveries go on the list, not into the code.** A case you notice while going green becomes a list item. If it invalidates work already done, revert to the last green commit and reorder the list rather than push through.
 9. **Simplify on green.** For each line just added, ask "does a failing test require this?" Delete it, or add the list item that would. Run after each deletion.
 10. **Refactor every cycle — consider, then do only what the next test needs.** Say what will change, or `🧹 none`, and why. No new behavior; tests green after each move; stop when the next test is easy to write. Duplication is a hint, not a command — do not abstract on the first repeat.
-11. **Interface decisions belong to the test; implementation decisions belong to the refactor.** Design rules from other skills (`ddd-*` when installed) constrain the first: the test invokes the interface those rules prescribe. The second is this skill's: tests stay green while the implementation changes shape.
+11. **Interface decisions belong to the test; implementation decisions belong to the refactor.** The test invokes whatever interface the project's design conventions call for — the loop is the same under any architecture — and that decision is made while writing the test, not before. The implementation behind it is this skill's: it changes shape only under green tests.
 12. **Commit at every green and after each refactoring.** The message names the behavior. In human mode the red step is also committed, with the failing test alone, so the trail shows the test came first.
 13. **Test behavior, not implementation.** Assert on returned values and resulting state. Never on which methods were called or in what order — such a test breaks on every refactoring and passes on every bug.
 14. **Stop when the list is empty and no fear remains.** If anything about the behavior still worries you, it goes on the list and the loop continues. Push back when a request would skip the loop ("just add the feature"); the user may declare a spike explicitly, and a spike is thrown away.
@@ -114,4 +114,5 @@ When you catch yourself reasoning around the rules above, look here before you t
 
 - **`tdd-test-list`** — step 1: the list, ZOMBIES, ordering, and the definition of done this skill checks against.
 - **`<stack>-tdd`** — the mechanics skill for your stack (`quarkus-tdd`, `spring-tdd`, `pytest-tdd`, ...), if installed: the runner, what "all previous tests" costs per tier, the compile-red stub convention, doubles, and the worked example (`references/tdd-cycle.md` there). If none is installed, apply the rules above with the project's runner.
-- **`ddd-*`** (if installed) — the shape of the interface a test invokes: aggregate factories and transition methods, value objects, repository contracts. They constrain Rule 11's first half; the loop and its hats are unchanged.
+
+The loop does not depend on the architecture of the code: it is the same for Domain-Driven Design, for REST over Active Record, and for a script. The project's conventions decide what a test invokes; this skill decides when and in what order.

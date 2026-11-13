@@ -24,7 +24,7 @@ the list is missing, then return to the list.
 
 - **Test transitions, not just states.** Verify moving from empty to not-empty, and back again.
 - **Procrastinate deliberately.** Defer implementation until a test demands it. A hard-coded return value is fine; the next test catches it if you forget to generalize.
-- **The interface emerges from tests.** Don't design the API up front; write the test and the needed call reveals itself. When another skill constrains the interface (an aggregate's factory and transition methods, for instance), the test invokes that interface — ZOMBIES decides which *cases* to cover, not what the API looks like.
+- **The interface emerges from tests.** Don't design the API up front; write the test and the needed call reveals itself. When the project's conventions fix the interface (a required factory, a naming scheme, a framework's calling convention), the test invokes that interface — ZOMBIES decides which *cases* to cover, not what the API looks like.
 - **Exceptions come last.** Get the happy paths working first, then test the error conditions, including that a failed operation leaves the object usable.
 
 ## Example: circular buffer (FIFO)
