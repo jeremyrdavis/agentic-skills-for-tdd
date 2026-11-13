@@ -1,0 +1,14 @@
+{
+  "name": "agentic-skills-for-tdd",
+  "description": "Stack-neutral Test-Driven Development skills for Claude Code; pair with a <stack>-tdd mechanics plugin such as quarkus-skills.",
+  "owner": {
+    "name": "jeremyrdavis"
+  },
+  "plugins": [
+    {
+      "name": "tdd-skills",
+      "source": "./",
+      "description": "Stack-neutral Test-Driven Development skills: the test list (tdd-test-list) and the red-green-refactor cycle (tdd-cycle)."
+    }
+  ]
+}

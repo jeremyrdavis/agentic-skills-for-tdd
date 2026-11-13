@@ -1,0 +1,9 @@
+{
+  "name": "tdd-skills",
+  "description": "Stack-neutral Test-Driven Development skills: the test list (tdd-test-list) and the red-green-refactor cycle (tdd-cycle), after Beck's Canon TDD. Pair with a <stack>-tdd mechanics skill (e.g. quarkus-tdd).",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "jeremyrdavis"
+  }
+}
