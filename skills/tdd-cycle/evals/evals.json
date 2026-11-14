@@ -1,0 +1,62 @@
+{
+  "skill_name": "tdd-cycle",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a stack data structure in Python. It should support push, pop, and peek. Pop and peek on an empty stack should raise an error.",
+      "expected_output": "A Stack class built test-first: a [TEST] list, then one test at a time through red, green, and refactor, with minimal code at each step and a commit at each green",
+      "files": [],
+      "expectations": [
+        "The mode is announced once at the start (TDD mode: auto unless the user asked for human)",
+        "A [TEST] list exists before any test or production code is written",
+        "Exactly one test is written at a time; the list is never converted into a batch of tests",
+        "Every test has setup, invocation, and an assertion, with blank lines between given, when, and then",
+        "Each expected value is stated by reasoning before the run; none is copied from a run's output",
+        "A prediction is stated before every test run",
+        "When a test names something new, a compile or resolution failure is seen before the assertion failure",
+        "Only the simplest change is made to pass each test; hard-coded returns appear early and are generalized by later tests",
+        "No refactoring happens while a test is red",
+        "A refactoring step is considered after every green and either described or stated as none",
+        "A commit is made at every green and after each refactoring, with a message naming the behavior",
+        "Any test that passes without ever failing is called out with its cause",
+        "Error cases (pop and peek on empty) are tested after the happy paths, and the stack still works after a failed pop",
+        "The loop ends only when the list is empty and a closing check for remaining concerns has been made"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a function that converts Roman numerals to integers in TypeScript. Handle I through M, including subtractive notation like IV, IX, XL, XC, CD, and CM.",
+      "expected_output": "A converter grown incrementally through TDD from single numerals to additive sequences to subtractive pairs, with the implementation generalizing only as tests demand",
+      "files": [],
+      "expectations": [
+        "A [TEST] list is written first and starts with the simplest case (a single numeral)",
+        "Subtractive cases appear on the list after the additive ones and are implemented only when their test is red",
+        "Each test is seen to fail before the code that passes it is written",
+        "Expected integer values are derived by reasoning, not by running the function",
+        "The implementation grows one case at a time; no complete lookup-table solution is dropped in to pass the first test",
+        "Discovered cases (for example, invalid input) are appended to the list rather than implemented on the spot",
+        "Refactoring happens on green, in its own step, and does not introduce an abstraction at the first duplication",
+        "Invalid-input handling is deferred until the happy paths pass",
+        "All previous tests are run at every green, not only the new one",
+        "A commit follows each green and each refactoring"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build a simple shopping cart in Java. It should add items with a name and price, calculate the total, and apply a percentage discount. Don't worry about persistence.",
+      "expected_output": "A ShoppingCart developed through the loop: empty cart first, then one item, many items, then discount cases, with domain concepts emerging in refactoring rather than designed up front",
+      "files": [],
+      "expectations": [
+        "The first test is the simplest forcing case (an empty cart's total is zero or equivalent)",
+        "Discount logic is not implemented until a discount test is red",
+        "The two-step red is visible whenever a new class or method is introduced: compile error, then assertion failure",
+        "After each green the newly added lines are checked against the question of whether a failing test requires them",
+        "Any domain concept that is introduced (for example a Money type) appears in a refactoring step with no new behavior and tests still green",
+        "No test verifies method calls on a mock; every assertion is on a returned value or resulting state",
+        "No expected total is pasted from a test run",
+        "Commits are made at each green and each refactoring",
+        "The loop ends with an explicit check for behaviors that still cause concern, which are added to the list if any"
+      ]
+    }
+  ]
+}

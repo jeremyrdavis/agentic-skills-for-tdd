@@ -1,0 +1,34 @@
+{
+  "skill_name": "tdd-test-list",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm about to build a tennis game scorer. Two players, traditional scoring (0, 15, 30, 40), deuce and advantage, the game ends when a player wins, and a method that returns the score as a string like '15-30', 'Deuce', 'Advantage Player 1', or 'Player 2 wins'. Write the test list before we start.",
+      "expected_output": "A [TEST] list of observable behaviors, walked through ZOMBIES, ordered from the initial score through single points, many points, the boundaries into deuce and advantage, and the end of the game, with error cases last",
+      "files": [],
+      "expectations": [
+        "The list is written before any test or production code and uses one [TEST] line per behavior",
+        "Every item is phrased as an observable outcome; none names a class, data structure, or algorithm",
+        "ZOMBIES is walked explicitly: initial score (Z), first point (O), several points (M), the 40-40 to deuce and deuce to advantage transitions in both directions (B), and scoring after the game is won (E)",
+        "Normal scoring items come before deuce and advantage items; error items come last",
+        "The first item is the simplest case that forces new behavior (the initial score)",
+        "Advantage and win-from-advantage are separate items, not one combined item",
+        "Items that would need 'and' are split into two"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here is my test file for a circular buffer. It has tests for 'new buffer is empty', 'put then get returns the item', and 'put three items, get returns them in order'. What tests am I missing?",
+      "expected_output": "A gap review against ZOMBIES that adds the missing boundary transitions, the full and wrap-around cases, and the exception cases, appended as [TEST] items in a sensible order",
+      "files": [],
+      "expectations": [
+        "The review walks ZOMBIES rather than listing random extra cases",
+        "Missing boundary transitions are identified: not-empty back to empty, not-full to full, and wrap-around",
+        "Exception cases are added last: put to a full buffer, get from an empty buffer, and that the buffer still works after a failed operation",
+        "The additions are written as [TEST] lines in the same style as the existing tests, not as implemented tests",
+        "The existing tests are not rewritten; the review only adds and orders",
+        "The review ends by asking what still causes concern and adds any answer to the list"
+      ]
+    }
+  ]
+}
