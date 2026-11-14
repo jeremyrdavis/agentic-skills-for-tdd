@@ -47,7 +47,7 @@ Canon is written for people. The additions below exist because an assistant that
 
 - **Predict before every run** (Rule 4) and **derive the expected value by reasoning** (Rule 3): the assistant can run the code and read the answer off the output, which is exactly the double-checking loss Beck describes.
 - **Two-step red** (Rule 5): a compile or resolution failure first proves the test names something new; the assertion failure then proves the test can fail. Cheap, and it exposes the next item.
-- **Passed-without-red callout** (Rule 6): the symptom of implementing ahead of the test; naming it keeps the drift visible instead of silent.
+- **Passed-without-red callout** (Rule 6): usually the symptom of implementing ahead of the test, sometimes a forced generalization or an already-covered "still works" item; naming the cause keeps the drift visible instead of silent.
 - **Simplify on green** (Rule 9): "does a failing test require this line?" — the assistant's version of procrastinating deliberately.
 - **Commit at every green and after each refactoring** (Rule 12): Beck's "start over in a different order" presumes a cheap rollback point.
 
